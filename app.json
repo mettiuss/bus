@@ -1,0 +1,46 @@
+{
+	"configVersion": "v2",
+	"app": {
+		"appId": 25658,
+		"appName": "Buses",
+		"appType": "app",
+		"version": { "code": 1, "name": "1.0.1" },
+		"icon": "icon.png",
+		"vender": "mettius",
+		"description": "Buses Timetable app"
+	},
+	"permissions": [],
+	"runtime": { "apiVersion": { "compatible": "1.0.0", "target": "1.0.1", "minVersion": "1.0.0" }, "type": 2 },
+	"debug": false,
+	"i18n": { "en-US": { "appName": "Buses" } },
+	"defaultLanguage": "en-US",
+	"targets": {
+		"l66": {
+			"module": {
+				"page": {
+					"pages": ["page/l66/index", "page/l66/stop"],
+					"window": {
+						"navigationBarBackgroundColor": "#ffffff",
+						"navigationBarTextStyle": "black",
+						"navigationBarTitleText": "Buses",
+						"backgroundColor": "#eeeeee",
+						"backgroundTextStyle": "light"
+					}
+				},
+				"app-side": { "path": "app-side/index" },
+				"setting": { "path": "setting/index" }
+			},
+			"platforms": [
+				{ "name": "l66", "deviceSource": 260 },
+				{ "name": "l66w", "deviceSource": 261 },
+				{ "name": "l66_1", "deviceSource": 262 },
+				{ "name": "l66w_2", "deviceSource": 263 },
+				{ "name": "l66_3", "deviceSource": 264 },
+				{ "name": "l66_4", "deviceSource": 265 },
+				{ "name": "l66_5", "deviceSource": 266 }
+			],
+			"designWidth": 192
+		}
+	},
+	"packageInfo": { "mode": "production", "timeStamp": 1667689008, "expiredTime": 172800, "zpm": "2.6.6" }
+}

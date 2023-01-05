@@ -1,0 +1,12 @@
+export const data = {
+	'LINE': {
+		stops: [
+			{
+				name: 'STOP NAME',
+				departures: [
+					{ time: int, saturday: boolean, sunday: boolean }, // time in minutes from midnigth
+				],
+			},
+		],
+	},
+};
