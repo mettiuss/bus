@@ -1,4 +1,7 @@
-import os, glob, zipfile, shutil
+import glob
+import os
+import shutil
+import zipfile
 
 
 def get_filename(path):
@@ -24,4 +27,4 @@ for path in glob.glob(os.path.join(bindir, "*.zab")):
         shutil.copyfile(os.path.join(temp, "device.zip"), os.path.join(result, get_filename(path) + ".bin"))
     shutil.rmtree(temp)
 
-os.rename(os.path.join(result, "l66.bin"), os.path.join(result, app_id + ".bin"))
+os.rename(os.path.join(result, "l66-DIALOG-192x349.bin"), os.path.join(result, app_id + ".bin"))

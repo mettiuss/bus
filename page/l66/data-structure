@@ -1,0 +1,17 @@
+export const data = [
+	{
+		name: stop_name,
+		line: line_name,
+		departures: [
+			[
+				times for monday-friday (format is in minutes since midnight so 7:30 AM is 450)
+			],
+			[
+				times for saturday
+			],
+			[
+        times for sunday
+      ],
+		],
+	}
+];
