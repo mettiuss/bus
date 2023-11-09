@@ -39,14 +39,14 @@ Page({
 
 			group.addEventListener(hmUI.event.CLICK_UP, function (info) {
 				hmApp.gotoPage({
-					url: 'page/l66/stop.page',
+					url: 'page/stop.page',
 					param: i.toString(),
 				});
 			});
 		}
 		hmUI.createWidget(hmUI.widget.FILL_RECT, {
 			x: 0,
-			y: WIDGET_HEIGHT_WITH_PADDING * data.length,
+			y: WIDGET_HEIGHT_WITH_PADDING * (data.length + 1),
 			w: DEVICE_WIDTH,
 			h: WIDGET_HEIGHT * 2,
 		});

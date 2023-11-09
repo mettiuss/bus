@@ -32,7 +32,7 @@
 		"l66": {
 			"module": {
 				"page": {
-					"pages": ["page/l66/index.page", "page/l66/stop.page"],
+					"pages": ["page/index.page", "page/stop.page"],
 					"window": {
 						"navigationBarBackgroundColor": "#ffffff",
 						"navigationBarTextStyle": "black",
