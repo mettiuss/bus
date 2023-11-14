@@ -18,18 +18,18 @@ Page({
 		hmUI.createWidget(hmUI.widget.TEXT, PAGE_TITLE('Stops'));
 
 		for (let i = 0; i < data.length; i++) {
-			const group = hmUI.createWidget(hmUI.widget.GROUP, {
+			let position = {
 				x: PADDING,
 				y: WIDGET_HEIGHT_WITH_PADDING * (i + 1),
 				w: WIDTH_WITHOUT_PADDING,
 				h: WIDGET_HEIGHT,
-			});
+			};
+			const group = hmUI.createWidget(hmUI.widget.GROUP, position);
 
 			group.createWidget(hmUI.widget.FILL_RECT, WIDGET_RECT);
 
 			group.createWidget(hmUI.widget.TEXT, H1(data[i].name));
 			group.createWidget(hmUI.widget.TEXT, H2(data[i].line, 52));
-			group.addEventListener(hmUI.event.CLICK_UP, function (info) {});
 
 			group.createWidget(hmUI.widget.IMG, {
 				x: DEVICE_WIDTH - 32,
@@ -37,7 +37,8 @@ Page({
 				src: 'arrow.png',
 			});
 
-			group.addEventListener(hmUI.event.CLICK_UP, function (info) {
+			position.src = '';
+			hmUI.createWidget(hmUI.widget.IMG, position).addEventListener(hmUI.event.CLICK_UP, () => {
 				hmApp.gotoPage({
 					url: 'page/stop.page',
 					param: i.toString(),

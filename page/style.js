@@ -2,9 +2,10 @@ export const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = hmSetting.getDevic
 export const PADDING = 4;
 export const WIDGET_HEIGHT = 100;
 
-//Arithmetic operations are slow on the band, here are some pre-calculeted data
+//Arithmetic operations are slow on the band, here is some pre-calculeted data
 export const WIDGET_HEIGHT_WITH_PADDING = WIDGET_HEIGHT + PADDING * 2;
 export const WIDTH_WITHOUT_PADDING = DEVICE_WIDTH - PADDING * 2;
+export const DOUBLE_PADDING = PADDING * 2;
 
 export const WIDGET_RECT = {
 	x: 0,
@@ -43,7 +44,7 @@ export function SUBTITLE(content) {
 
 export function H1(content) {
 	return {
-		x: PADDING * 2,
+		x: DOUBLE_PADDING,
 		y: PADDING,
 		w: 164,
 		h: 52,
@@ -56,7 +57,7 @@ export function H1(content) {
 
 export function H2(content, yOffset = 0) {
 	return {
-		x: PADDING * 2,
+		x: DOUBLE_PADDING,
 		y: PADDING + yOffset,
 		w: 164,
 		h: 30,
