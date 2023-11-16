@@ -1,5 +1,5 @@
 export const { width: DEVICE_WIDTH, height: DEVICE_HEIGHT } = hmSetting.getDeviceInfo();
-export const PADDING = 4;
+export const PADDING = 6;
 export const WIDGET_HEIGHT = 100;
 
 //Arithmetic operations are slow on the band, here is some pre-calculeted data
@@ -10,10 +10,10 @@ export const DOUBLE_PADDING = PADDING * 2;
 export const WIDGET_RECT = {
 	x: 0,
 	y: 0,
-	w: WIDTH_WITHOUT_PADDING,
+	w: DEVICE_WIDTH,
 	h: WIDGET_HEIGHT,
-	radius: 12,
-	color: 0x222222,
+	radius: 16,
+	color: 0x141414,
 };
 
 export function PAGE_TITLE(content) {

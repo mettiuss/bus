@@ -1,11 +1,9 @@
 import {
-	PADDING,
 	WIDGET_RECT,
 	DEVICE_WIDTH,
 	SUBTITLE,
 	PAGE_TITLE,
 	WIDGET_HEIGHT_WITH_PADDING,
-	WIDTH_WITHOUT_PADDING,
 	WIDGET_HEIGHT,
 	H1,
 	H2,
@@ -42,20 +40,25 @@ Page({
 		let totalWidgets = 0;
 		const maximumWidgets = 10;
 
-		for (let j = 0; j < data[p].departures[weekdayLink[time.week]].length && totalWidgets < maximumWidgets; j++) {
-			if (data[p].departures[weekdayLink[time.week]][j] < currentTime) continue;
+		function addWidget(departure, subtitle) {
 			const group = hmUI.createWidget(hmUI.widget.GROUP, {
-				x: PADDING,
+				x: 0,
 				y: WIDGET_HEIGHT_WITH_PADDING * (totalWidgets + 1.2),
-				w: WIDTH_WITHOUT_PADDING,
+				w: DEVICE_WIDTH,
 				h: WIDGET_HEIGHT,
 			});
 
 			group.createWidget(hmUI.widget.FILL_RECT, WIDGET_RECT);
 
-			group.createWidget(hmUI.widget.TEXT, H1(formatTime(data[p].departures[weekdayLink[time.week]][j])));
-			group.createWidget(hmUI.widget.TEXT, H2('Today', 48));
+			group.createWidget(hmUI.widget.TEXT, H1(formatTime(departure)));
+			group.createWidget(hmUI.widget.TEXT, H2(subtitle, 48));
 			totalWidgets++;
+		}
+
+		for (let i = 0; i < data[p].departures[weekdayLink[time.week]].length && totalWidgets < maximumWidgets; i++) {
+			const departure = data[p].departures[weekdayLink[time.week]][i];
+			if (departure < currentTime) continue;
+			addWidget(departure, 'Today');
 		}
 
 		for (
@@ -64,21 +67,8 @@ Page({
 			i < data[p].departures[weekdayLink[time.week != 7 ? time.week + 1 : 1]].length;
 			i++
 		) {
-			const group = hmUI.createWidget(hmUI.widget.GROUP, {
-				x: PADDING,
-				y: WIDGET_HEIGHT_WITH_PADDING * (totalWidgets + 1.2),
-				w: WIDTH_WITHOUT_PADDING,
-				h: WIDGET_HEIGHT,
-			});
-
-			group.createWidget(hmUI.widget.FILL_RECT, WIDGET_RECT);
-
-			group.createWidget(
-				hmUI.widget.TEXT,
-				H1(formatTime(data[p].departures[weekdayLink[time.week != 7 ? time.week + 1 : 1]][i]))
-			);
-			group.createWidget(hmUI.widget.TEXT, H2('Tomorrow', 48));
-			totalWidgets++;
+			const departure = data[p].departures[weekdayLink[time.week != 7 ? time.week + 1 : 1]][i];
+			addWidget(departure, 'Tomorrow');
 		}
 
 		hmUI.createWidget(hmUI.widget.FILL_RECT, {

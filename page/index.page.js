@@ -1,14 +1,4 @@
-import {
-	PADDING,
-	WIDGET_RECT,
-	DEVICE_WIDTH,
-	PAGE_TITLE,
-	WIDGET_HEIGHT_WITH_PADDING,
-	WIDTH_WITHOUT_PADDING,
-	WIDGET_HEIGHT,
-	H1,
-	H2,
-} from './style';
+import { WIDGET_RECT, DEVICE_WIDTH, PAGE_TITLE, WIDGET_HEIGHT_WITH_PADDING, WIDGET_HEIGHT, H1, H2 } from './style';
 import { data } from './data';
 
 Page({
@@ -19,10 +9,11 @@ Page({
 
 		for (let i = 0; i < data.length; i++) {
 			let position = {
-				x: PADDING,
+				x: 0,
 				y: WIDGET_HEIGHT_WITH_PADDING * (i + 1),
-				w: WIDTH_WITHOUT_PADDING,
+				w: DEVICE_WIDTH,
 				h: WIDGET_HEIGHT,
+				src: '',
 			};
 			const group = hmUI.createWidget(hmUI.widget.GROUP, position);
 
@@ -37,7 +28,6 @@ Page({
 				src: 'arrow.png',
 			});
 
-			position.src = '';
 			hmUI.createWidget(hmUI.widget.IMG, position).addEventListener(hmUI.event.CLICK_UP, () => {
 				hmApp.gotoPage({
 					url: 'page/stop.page',
