@@ -6,3 +6,7 @@ dist
 node_modules
 package-lock.json
 .DS_Store
+
+#tools
+zmake.app
+ZeppPlayer.app

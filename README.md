@@ -18,6 +18,11 @@ Clone the project
 
 Compile the program using zmake and run it using ZeppPlayer (you can find instructions in the github pages)
 
+## Adding stop data
+
+Create a new file under `page/` naming it `data.json`.
+Build it following the template in `page/data-structure.txt`
+
 ## Installation
 
 Compile the project with zmake
